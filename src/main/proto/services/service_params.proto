@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "src/main/proto/models/author.proto";
+import "src/main/proto/models/book.proto";
+
+
+package services;
+
+message Empty {}
+
+message AuthorRequestId {
+  int32 id = 1;
+}
+
+message AuthorUpdateParams {
+  AuthorRequestId id = 1;
+
+  models.Author author_to_update = 2;
+}
+
+message BookRequestId {
+  int32 id = 1;
+}
+
+message BookUpdateParams {
+  BookRequestId id = 1;
+  models.Book Book_to_update = 2;
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "src/main/proto/models/author.proto";
+import "src/main/proto/models/book.proto";
+import "src/main/proto/services/service_params.proto";
+
+package services;
+
+service BookService {
+
+  rpc CreateBook(models.Book) returns (models.Book);
+
+  rpc GetBook(BookRequestId) returns (models.Book);
+
+  rpc GetBookAuthor(BookRequestId) returns (models.Author);
+
+  rpc GetAllBooks(Empty) returns (stream models.Book);
+
+  rpc GetAllBooksByAuthor(AuthorRequestId) returns (stream models.Book);
+
+  rpc UpdateBook(BookUpdateParams) returns (models.Book);
+
+  rpc DeleteBook(BookRequestId) returns (Empty);
+
+}
